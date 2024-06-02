@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recette;
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 
 class RecetteController extends Controller
@@ -41,6 +42,16 @@ class RecetteController extends Controller
 
         return redirect('/recettes');
     }
+
+    public function detail($id)
+    {
+
+        $recettes = Recette::find($id);
+
+        return view('recettes.detail', ['recettes' => $recettes]);
+
+    }
+
     public function supprimer($id){
         $recette = Recette::findOrFail($id);
         $recette->delete();

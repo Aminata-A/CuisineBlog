@@ -14,13 +14,14 @@
     @foreach ($recettes as $recette)
         
     <div class="card" style="width: 18rem;">
-        <img src="{{ $recette->image_url}}" class="card-img-top" alt="..." name='image_url'>
+        <img src="{{ $recette->image_url }}" class="card-img-top" alt="..." name='image_url'>
         <div class="card-body">
           <h5 class="card-title">{{ $recette->titre}}</h5>
           <p class="card-text">{{ $recette->description}}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="/recettes/detail/{{$recette->id}}" class="btn btn-primary">Voir details</a>
           <a href="/recettes/modifier/{{$recette->id}}" class="btn btn-primary">Modifier</a>
-          <a href="/recettes/supprimer/{{$recette->id}}" class="btn btn-primary">supprimer</a>
+          <a href="/recettes/supprimer/{{$recette->id}}" class="btn btn-primary">Supprimer</a>
+
         </div>
       </div>
       @endforeach
