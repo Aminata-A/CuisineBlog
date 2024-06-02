@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Hello, world!</h1>
-    <a href="/recettes/form" class="btn btn-primary">Creer</a>
+    <a href="/recettes/creer" class="btn btn-primary">Creer</a>
 
 
     @foreach ($recettes as $recette)
@@ -19,6 +19,7 @@
           <h5 class="card-title">{{ $recette->titre}}</h5>
           <p class="card-text">{{ $recette->description}}</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="/recettes/modifier/{{$recette->id}}" class="btn btn-primary">Modifier</a>
         </div>
       </div>
       @endforeach

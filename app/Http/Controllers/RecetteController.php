@@ -13,13 +13,17 @@ class RecetteController extends Controller
 
         return view('recettes.index', ['recettes' => $recettes]);
     }    
-    public function form(){
+    public function form(Request $request){
+        $recette = NULL;
 
-        return view('recettes.creer');
+        if($request->id != NULL){
+            $recette = Recette::findOrFail($request->id);
+        } 
+        return view('recettes.form', ['recette' => $recette]);
     }
 
 
-    public function creer(Request $request){
+    public function creer_ou_modifier(Request $request){
 
         $recette_id = $request->input('recette_id');
 
@@ -32,9 +36,13 @@ class RecetteController extends Controller
         $recette->titre = $request->titre;
         $recette->description = $request->description;
         $recette->image_url = $request->image_url;
-        $nouveaute = $request->has('nouveaute') ? 1 : 0;
+        $recette->nouveaute = $request->has('nouveaute') ? 1 : 0;
         $recette->save();
 
         return redirect('/recettes');
     }
+    public function supprimer($id){
+
+    }
+
 }
