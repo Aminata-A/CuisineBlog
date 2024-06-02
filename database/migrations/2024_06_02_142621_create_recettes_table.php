@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('titre');
             $table->text('description');
             $table->string('image_url');            
-            $table->boolean('nouveaute');       
+            $table->boolean('nouveaute')->default(false)->change();       
             $table->timestamps();
         });
     }
