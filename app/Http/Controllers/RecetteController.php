@@ -42,7 +42,9 @@ class RecetteController extends Controller
         return redirect('/recettes');
     }
     public function supprimer($id){
-
+        $recette = Recette::findOrFail($id);
+        $recette->delete();
+        return redirect()->back();
     }
 
 }

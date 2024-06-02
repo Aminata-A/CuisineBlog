@@ -20,6 +20,7 @@
           <p class="card-text">{{ $recette->description}}</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
           <a href="/recettes/modifier/{{$recette->id}}" class="btn btn-primary">Modifier</a>
+          <a href="/recettes/supprimer/{{$recette->id}}" class="btn btn-primary">supprimer</a>
         </div>
       </div>
       @endforeach
