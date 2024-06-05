@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <form action="/recettes/creer_ou_modifier" method="POST">
+    <form action="/recettes/creer_ou_modifier" method="POST" class="container">
         @csrf
         @if ($recette != NULL)
         
@@ -54,7 +54,8 @@
         
         @endif
         
-        <button type="submit" class="btn btn-primary">Ajouter Recette</button>    </form>
+        <button type="submit" class="btn btn-primary">Ajouter Recette</button>    
+    </form>
         
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

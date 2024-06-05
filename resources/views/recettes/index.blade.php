@@ -7,24 +7,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h1>Liste des recettes</h1>
     <a href="/recettes/creer" class="btn btn-primary">Creer</a>
 
-    <div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-around ">
 
     @foreach ($recettes as $recette)
-        
-    <div class="card" style="width: 18rem;">
-        <img src="{{ $recette->image_url }}" class="card-img-top" alt="..." name='image_url'>
-        <div class="card-body">
-          <h5 class="card-title">{{ $recette->titre}}</h5>
-          <p class="card-text">{{ $recette->description}}</p>
-          <a href="/recettes/detail/{{$recette->id}}" class="btn btn-primary">Voir details</a>
-          <a href="/recettes/modifier/{{$recette->id}}" class="btn btn-primary">Modifier</a>
-          <a href="/recettes/supprimer/{{$recette->id}}" class="btn btn-danger">Supprimer</a>
-
+    <div class="col-md-3 mb-4">
+      <div class="card h-100"> <!-- Utilisation de h-100 pour spécifier que la carte doit occuper 100% de la hauteur de son conteneur -->
+          <img src="{{ $recette->image_url }}" class="card-img-top" alt="..." name='image_url'>
+          <div class="card-body d-flex flex-column"> <!-- Utilisation de d-flex et flex-column pour que le contenu se comporte comme une colonne et soit centré -->
+            <h5 class="card-title">{{ $recette->titre }}</h5>
+            <p class="card-text flex-grow-1">{{ Str::limit($recette->description, 100) }}</p> <!-- Utilisation de flex-grow-1 pour que le texte prenne toute la place disponible en hauteur -->
+            <a href="/recettes/detail/{{ $recette->id }}" class="btn btn-primary mt-auto">Voir détails</a> <!-- Utilisation de mt-auto pour pousser le bouton en bas de la carte -->
+          </div>
         </div>
-      </div>
+  </div>
       @endforeach
     </div>
 
