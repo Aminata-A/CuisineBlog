@@ -43,12 +43,25 @@ class RecetteController extends Controller
         return redirect('/recettes');
     }
 
-    public function detail($id)
+    public function detail($id, $id_commentaire = Null)
     {
 
         $recettes = Recette::find($id);
 
-        return view('recettes.detail', ['recettes' => $recettes]);
+
+        $commentaires = $recettes->commentaires;
+        $commentaire_to_edit = Null;
+        if($id_commentaire != Null){
+            $commentaire_to_edit = Commentaire::find($id_commentaire);
+        }
+
+        
+        return view('recettes.detail', [
+            'recettes' => $recettes,
+            'commentaires' => $commentaires,
+            'commentaire_to_edit' => $commentaire_to_edit,
+        ]);
+
 
     }
 

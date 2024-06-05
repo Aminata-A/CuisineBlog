@@ -10,6 +10,7 @@
     <h1>Hello, world!</h1>
     <a href="/recettes/creer" class="btn btn-primary">Creer</a>
 
+    <div class="d-flex justify-content-around">
 
     @foreach ($recettes as $recette)
         
@@ -20,11 +21,13 @@
           <p class="card-text">{{ $recette->description}}</p>
           <a href="/recettes/detail/{{$recette->id}}" class="btn btn-primary">Voir details</a>
           <a href="/recettes/modifier/{{$recette->id}}" class="btn btn-primary">Modifier</a>
-          <a href="/recettes/supprimer/{{$recette->id}}" class="btn btn-primary">Supprimer</a>
+          <a href="/recettes/supprimer/{{$recette->id}}" class="btn btn-danger">Supprimer</a>
 
         </div>
       </div>
       @endforeach
+    </div>
+
 
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
