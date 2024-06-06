@@ -12,7 +12,7 @@ class CommentaireController extends Controller
     public function sauvegarder(Request $request)
     {
         $request->validate([
-            'nom_complet_auteur' => 'required|max:10',
+            'nom_auteur' => 'required|max:10',
             'contenu' => 'required|max:255',
             'recette_id' => 'required|exists:recettes,id',
         ]);
@@ -23,11 +23,11 @@ class CommentaireController extends Controller
         } else {
             $commentaire = Commentaire::find($commentaire_id);
         }
-        $commentaire->nom_complet_auteur = $request->nom_complet_auteur;
+        $commentaire->nom_auteur = $request->nom_auteur;
         $commentaire->contenu = $request->contenu;
         $commentaire->recette_id = $request->recette_id;
         $commentaire->save();
-        return redirect('/recettes/'.$commentaire->recette_id);
+        return redirect('/recettes/detail/'.$commentaire->recette_id);
     }
 
     public function supprimer($id){

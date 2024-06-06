@@ -48,7 +48,7 @@
                               <div class="fw-bold">{{ $commentaire->nom_auteur}}</div>
                               {{ $commentaire->contenu}}
                               <a href="/commentaires/supprimer/{{ $commentaire->id }}" class="danger" style="color:red">Supprimer</a>
-                              <a href="/recettes/{{ $recette->id }}/commentaires/{{ $commentaire->id }}" class="danger" style="">modifier</a>
+                              <a href="/recettes/{{ $recettes->id }}/commentaires/{{ $commentaire->id }}" class="danger" style="">modifier</a>
                           </div>
                       </li>
                       @endforeach
